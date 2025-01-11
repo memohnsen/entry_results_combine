@@ -25,8 +25,8 @@ interface CombinedResult {
 }
 
 // Read both files
-const liftingDataFile = fs.readFileSync('weightlifting_data.ts', 'utf8');
-const entriesFile = fs.readFileSync('weightlifting_entries.ts', 'utf8');
+const liftingDataFile = fs.readFileSync('24_results.ts', 'utf8');
+const entriesFile = fs.readFileSync('ao125_entries.ts', 'utf8');
 
 // Extract entries data
 const entriesStart = entriesFile.indexOf('export const entries: WeightliftingEntry[] = [');
@@ -144,6 +144,6 @@ export interface LiftResult {
 export const liftingResults: LiftResult[] = [\n${formattedEntries}\n];`;
 
 // Write the sorted content back to a file
-fs.writeFileSync('weightlifting_data_sorted.ts', newContent);
+fs.writeFileSync('ao125_sorted.ts', newContent);
 
-console.log('File has been sorted and saved as weightlifting_data_sorted.ts'); 
+console.log('File has been sorted and saved'); 
